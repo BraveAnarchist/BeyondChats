@@ -9,8 +9,8 @@ import { auth } from "../../Firebase.js";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -29,9 +29,10 @@ export default function SignIn() {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      setMessage("User logged in with Google!");
+      alert("User logged in with Google!");
+      navigate("/");
     } catch (error) {
-      setMessage("Error logging in with Google: " + error.message);
+      alert("Error logging in with Google: " + error.message);
     }
   };
   return(
@@ -49,7 +50,7 @@ export default function SignIn() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" className="space-y-6">
+        <form className="space-y-6">
           <div>
             <label
               htmlFor="email"
@@ -62,6 +63,8 @@ export default function SignIn() {
                 id="email"
                 name="email"
                 type="email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 required
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -81,8 +84,6 @@ export default function SignIn() {
                 id="code"
                 name="code"
                 type="text"
-                placeholder="0000"
-                required
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
             </div>
@@ -103,6 +104,8 @@ export default function SignIn() {
                 id="password"
                 name="password"
                 type="password"
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -112,7 +115,7 @@ export default function SignIn() {
 
           <div>
             <button
-              type="submit"
+              onClick={handleLogin}
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign in
@@ -120,14 +123,16 @@ export default function SignIn() {
           </div>
 
           <div>
-            <button
-              type="submit"
+            
+          </div>
+        </form>
+
+        <button
+              onClick={handleGoogleSignIn}
               className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Continue with google
             </button>
-          </div>
-        </form>
 
         <p className="mt-10 text-center text-sm/6 text-gray-500">
         Dont have an account?{" "}
