@@ -75,7 +75,7 @@ export default function Home() {
       </form>
       {flag && (
         <>
-          <div className="flex mx-[20vw] justify-around align-center mb-[4vh]">
+          <div className="flex mx-[20vw] justify-around align-center mb-[4vh] animate__animated animate__fadeInUp">
             <div className="flex">
               <h2 className="mr-[1vw]">Training bot</h2>
               <BeatLoader color="#4bb3fd" />

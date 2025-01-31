@@ -27,7 +27,7 @@ export default function Menu({ randomPathHandler }) {
       ></i>
       <Modal show={show} toggle={toggle} />
       <div className="text-center">
-        <div class="mt-10 flex items-center justify-center gap-x-6">
+        <div class="mt-10 flex items-center justify-center gap-x-6 max-[720px]:flex-col max-[720px]:gap-4">
           <Link
             to="/ClientSite"
             className="rounded-md bg-blue-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-xs hover:bg-blue-700"
@@ -42,7 +42,7 @@ export default function Menu({ randomPathHandler }) {
           </Link>
           <div
             onClick={randomPathHandler}
-            class="rounded-md bg-blue-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-xs hover:bg-blue-700"
+            class="rounded-md bg-blue-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-xs hover:bg-blue-700 hover:cursor-pointer"
           >
             {" "}
             Test integration button

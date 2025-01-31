@@ -18,8 +18,8 @@ export default function Modal({ show, toggle }) {
   return (
     <>
       {show && (
-        <div className="fixed z-10 h-[100vh] flex justify-center items-center bg-opacity-90">
-          <div className="bg-white p-6 rounded-lg relative">
+        <div className="fixed z-10 h-[100vh] flex justify-center items-center bg-opacity-90 ">
+          <div className="bg-white p-6 rounded-lg relative animate__animated animate__slideInLeft">
             <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
               <i onClick={toggle} className="fa-solid fa-xmark"></i>
             </button>
