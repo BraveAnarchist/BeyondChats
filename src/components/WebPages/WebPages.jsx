@@ -1,35 +1,56 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import dummySite from "./dummyPages";
 
 export default function WebPages() {
-  const [pages,setPages]=useState([]);
+  const [pages, setPages] = useState([]);
 
   return (
-    <div>
-      <div>
-        <h2>Detected webpages</h2>
-        <div>
-            {dummySite.map((ele,idx)=>{
-            return <iframe className="overflow-scroll h-[500px] w-[20%] m-[2vh] border-2 border-indigo-600" key={idx} src={ele} />
-            })}
+    <div className="border-4 border-[#4bb3fd] flex">
+      <div className="flex-1 border-r-4 border-[#4bb3fd]">
+      <h3 className="mt-5 text-center text-lg">Detected webpages</h3>
+        <div className="flex flex-wrap">
+          {dummySite.map((ele, idx) => {
+            return (
+              <iframe
+                className="overflow-scroll h-[35vh] w-[40%] m-[2vh] border-2 border-indigo-400 rounded-lg"
+                key={idx}
+                src={ele}
+              />
+            );
+          })}
         </div>
-
-        <h2>Scraped webpages</h2>
-        <div>
-        <iframe className="overflow-scroll h-[500px] w-[20%] m-[2vh] border-2 border-indigo-600" 
-        src="https://www.flipkart.com/powerzone-apz-12-0pz600lmf-60-ah-battery-car/p/itm57c4ca17640e9?pid=VEBGSHNAWBA5GGTV&lid=LSTVEBGSHNAWBA5GGTVOU7RTX&marketplace=FLIPKART&cmpid=content_vehicle-battery_8965229628_gmc" // URL of the page you want to embed
-        width="100%" // Width of the iframe
-        height="600" // Height of the iframe
-        title="Webpage Example"
-        frameBorder="0" // Removes the border around the iframe
-        allowFullScreen // Allows the iframe to go fullscreen
-      />
+      </div>
+      <div  className="flex-1 border-r-4 border-[#4bb3fd]">
+      <h3 className="mt-5 text-center text-lg">Scraped webpages</h3>
+        <div className="flex flex-wrap">
+          {dummySite.map((ele, idx) => {
+            if (idx < 2) {
+              return (
+                <iframe
+                  className="overflow-scroll h-[35vh] w-[40%] m-[2vh] border-2 border-indigo-400 rounded-lg"
+                  key={idx}
+                  src={ele}
+                />
+              );
+            }
+          })}
         </div>
-
-        <h2>Pending webpages</h2>
-        <div>
-            
+      </div>
+      <div  className="flex-1">
+      <h3 className="mt-5 text-center text-lg">Pending webpages</h3>
+        <div className="flex flex-wrap">
+          {dummySite.map((ele, idx) => {
+            if (idx >= 2) {
+              return (
+                <iframe
+                  className="overflow-scroll h-[35vh] w-[40%] m-[2vh] border-2 border-indigo-400 rounded-lg"
+                  key={idx}
+                  src={ele}
+                />
+              );
+            }
+          })}
         </div>
       </div>
     </div>
