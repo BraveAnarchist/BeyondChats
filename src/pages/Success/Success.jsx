@@ -11,7 +11,7 @@ export default function Success() {
   useEffect(() => {
     setTimeout(() => {
     //   setShowConfetti(false);  // Optionally stop the confetti animation
-      navigate('/'); // Replace with your target route
+      navigate('/ChatbotInterface'); // Replace with your target route
     }, 4000);
   }, []);
   return (

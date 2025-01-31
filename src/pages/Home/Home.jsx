@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import WebPages from "../../components/WebPages/WebPages";
 import axios from "axios";
@@ -13,11 +13,17 @@ export default function Home() {
     companyUrl: "",
     companyDescription: "",
   });
-  const [metaDescription, setMetaDescription] = useState(false);
+  const [flag, setFlag] = useState(false);
 
-  async function fetchMetaDescription() {
-    
-  }
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user == null || !user.emailVerified) {
+        navigate("/SignIn");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <>
@@ -41,7 +47,6 @@ export default function Home() {
             type="url"
             value={data.companyUrl}
             onChange={(e) => setData({ ...data, companyUrl: e.target.value })}
-            required
             className="mt-1 p-2 w-full border border-gray-300 rounded-md"
           />
         </div>
@@ -58,31 +63,33 @@ export default function Home() {
           />
         </div>
 
-        {metaDescription && (
-          <div className="mt-4">
-            <strong>Meta Description:</strong> {metaDescription}
-          </div>
-        )}
-
         <button
-          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            setFlag(true);
+          }}
           className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
         >
           Submit
         </button>
       </form>
-      <div className="flex mx-[20vw] justify-around align-center mb-[4vh]">
-        <div className="flex">
-        <h2 className="mr-[1vw]">Training bot</h2>
-        <BeatLoader color="#4bb3fd" />
-        </div>
-        <button
-          
-          className="w-[4vw] bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">
-          Skip
-        </button>
-      </div>
-      <WebPages />
+      {flag && (
+        <>
+          <div className="flex mx-[20vw] justify-around align-center mb-[4vh]">
+            <div className="flex">
+              <h2 className="mr-[1vw]">Training bot</h2>
+              <BeatLoader color="#4bb3fd" />
+            </div>
+            <Link
+              to={"/Menu"}
+              className=" bg-blue-500 px-[1vw] text-white py-2 rounded-md hover:bg-blue-600"
+            >
+              Skip
+            </Link>
+          </div>
+          <WebPages />
+        </>
+      )}
     </>
   );
 }
