@@ -6,7 +6,7 @@ This is a React application built as a demo for a chatbot integration website. T
 
 You can view the live demo of the application here:
 
-[Live Demo -](https://week5-lhsj0p647-braveanarchists-projects.vercel.app/?authuser=0)
+[Live Demo -](https://beyond-chats-phi.vercel.app/)
 
 ## Features
 
