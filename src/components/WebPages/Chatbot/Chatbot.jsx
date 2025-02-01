@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 let genAI;
 export default function Chatbot() {
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState("Hi,I'm a chatbot. Ask me anything");
   const [word, setWord] = useState("");
   const navigate = useNavigate();
 
