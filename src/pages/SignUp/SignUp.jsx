@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile

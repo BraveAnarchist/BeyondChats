@@ -4,14 +4,11 @@ import ReactConfetti from 'react-confetti';
 import { useEffect } from 'react';
 
 export default function Success() {
-    // const [showConfetti, setShowConfetti] = useState(true);
   const navigate = useNavigate();
 
-  // After 2 seconds, navigate to another page
   useEffect(() => {
     setTimeout(() => {
-    //   setShowConfetti(false);  // Optionally stop the confetti animation
-      navigate('/ChatbotInterface'); // Replace with your target route
+      navigate('/ChatbotInterface'); 
     }, 4000);
   }, []);
   return (

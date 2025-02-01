@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Chatbot from "../../components/WebPages/Chatbot/Chatbot";
+import Chatbot from "../../components/Chatbot/Chatbot";
 
 export default function ClientIntegration() {
   const [inpL, setInpL] = useState("en");

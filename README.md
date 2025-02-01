@@ -2,6 +2,12 @@
 
 This is a React application built as a demo for a chatbot integration website. The application uses Firebase Authentication for user sign-in and sign-up, and integrates with a backend (not implemented) to handle tasks like scraping webpages, and training a chatbot.
 
+## Live Demo
+
+You can view the live demo of the application here:
+
+[Live Demo -](https://week5-lhsj0p647-braveanarchists-projects.vercel.app/?authuser=0)
+
 ## Features
 
 - **User Registration**
@@ -56,6 +62,10 @@ Chatbot integration instructions
 Integration fail
 
 ![alt text](image-3.png)
+
+Integration success
+
+![alt text](image-7.png)
 
 Chatbot menu
 
